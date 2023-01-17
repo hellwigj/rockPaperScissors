@@ -33,7 +33,32 @@ function game(x) {
     }
 }
 
-game(5);
+function makeButton(choice, name) {
+    choice.textContent = name;
+    buttonsDiv.appendChild(choice);
+    choice.addEventListener('click', () => result.textContent = playRound(name));
+}
+
+const gameUI = document.querySelector("#game");
+const buttonsDiv = document.createElement('div');
+const resultsDiv = document.createElement('div');
+gameUI.appendChild(buttonsDiv);
+gameUI.appendChild(resultsDiv);
+
+const result = document.createElement('p');
+
+const rock = document.createElement('button');
+const paper = document.createElement('button');
+const scissors = document.createElement('button');
+makeButton(rock, "Rock");
+makeButton(paper, "Paper");
+makeButton(scissors, "Scissors");
+
+resultsDiv.appendChild(result);
+
+
+
+//game(1);
 // const playerSelection = "rock";
 // const computerSelection = getComputerChoice();
 // console.log(playRound(playerSelection, computerSelection));
